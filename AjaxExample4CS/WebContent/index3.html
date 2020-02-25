@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+
+		// AJAX POST Request Using post()
+		$(document).ready(function(){
+  			$("button").click(function(){
+    			$.post("jspfile2.jsp",
+    				{
+    					name: "Donald Duck",
+    					city: "Duckburg"
+    				},
+    				function(data,status){
+      					document.getElementById("spanId").innerHTML=data+status;
+    			    }
+    			);
+  			});
+		});
+
+		// AJAX GET Request Using get()
+		$(document).ready(function(){
+  			$("button").click(function(){
+    			$.get("jspfile3.jsp",
+    				function(data,status){
+      					document.getElementById("spanId1").innerHTML=data+status;
+    			     }
+    			);
+  			});
+		});
+
+		// AJAX POST Request Using ajax()
+		$(document).ready(function() {
+			$('button').click(function() {
+				$.ajax({
+					url : 'jspfile4.jsp',
+					data : {
+						comment:"Muni Singh Ka Comment",
+						email:"singhmuni@gmail.com"
+					},
+					success : function(data,status) {
+						document.getElementById("spanId2").innerHTML=data+status;
+					}
+				});
+			});
+		});
+
+		// AJAX GET Request Using ajax()
+		$(document).ready(function() {
+			$('button').click(function() {
+				$.ajax({
+					url : 'jspfile5.jsp',
+					success : function(data,status) {
+						document.getElementById("spanId3").innerHTML=data+status;
+					}
+				});
+			});
+		});
+
+</script>
+</head>
+<body>
+
+	<span id="spanId">
+		<button>Send1</button>
+	</span>
+
+	<span id="spanId1">
+		<button>Send2</button>
+	</span>
+	
+	<span id="spanId2">
+		<button>Send3</button>
+	</span>
+	
+	<span id="spanId3">
+		<button>Send4</button>
+	</span>
+	
+</body>
+</html>
